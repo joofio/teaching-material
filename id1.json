@@ -1,0 +1,97 @@
+{
+  "resourceType": "Patient",
+  "id": "pat1",
+  "identifier": [
+      {
+          "use": "usual",
+          "type": {
+              "coding": [
+                  {
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                      "code": "MRS"
+                  }
+              ]
+          },
+          "system": "urn:oid:1.2.3.4.5",
+          "value": "89765a87b"
+      }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Silva",
+      "given": [
+        "João"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "919999999"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1971-08-17",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "Rua Nova 534"
+      ],
+      "city": "Santa Rosa"
+    }
+  ],
+  "extension": [ 
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-nationality",
+      "extension": [
+        {
+          "url" : "code",
+          "valueCodeableConcept" : {
+            "coding": [
+              {
+                "system": "urn:iso:std:iso:3166",
+                "code": "PT",
+                "display": "Portugal"
+              }
+            ]
+          }
+        }
+      ] 
+    }
+  ],
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+              "code": "N",
+              "display": "Next-of-Kin"
+            },
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "MTH",
+                "display": "mother"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "family": "Silva",
+        "given": [
+          "Inês"
+        ]
+      },
+      "gender": "female"
+    }
+  ],
+  "managingOrganization": {
+    "reference": "Organization/org1",
+    "display": "Clínica Médica Sagrada Família"
+  }
+}
