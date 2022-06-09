@@ -1,0 +1,807 @@
+{
+    "resourceType": "Bundle",
+    "identifier": {
+        "value": "dsad50239531-c343-4557-a62f-7e46114325a5"
+    },
+    "type": "message",
+    "entry": [{
+            "fullUrl": "http://teste.pt/MessageHeader/1cbdfb97-5859-48a4-8301-d54eab818d68",
+            "resource": {
+                "resourceType": "MessageHeader",
+                "id": "1cbdfb97-5859-48a4-8301-d54eab818d68",
+                "eventCoding": {
+                    "system": "http://teste.pt/fhir/message-events",
+                    "code": "proposta-cirurgia"
+                },
+                "destination": [{
+                    "name": "Gestor de cirurgias",
+                    "endpoint": "127.0.0.1:8000"
+                }],
+                "source": {
+                    "name": "Fonte",
+                    "software": "Gestor de doentes",
+                    "endpoint": "127.0.0.1:0000"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://teste.pt/ServiceRequest/1234567",
+            "resource": {
+                "resourceType": "ServiceRequest",
+                "id": "1234567",
+                "identifier": [{
+                    "value": "45678"
+                }],
+                "status": "active",
+                "intent": "proposal",
+                "code": {
+                    "coding": [{
+                        "system": "http://snomed.info/sct",
+                        "code": "62013009",
+                        "display": "procedure"
+                    }],
+                    "text": "Cirurgia"
+                },
+                "orderDetail": [{
+                    "coding": [{
+                        "system": "http://snomed.info/sct",
+                        "code": "62013009",
+                        "display": "Técnica cirúrgica"
+                    }],
+                    "text": "Técnica cirúrgica"
+                }],
+                "subject": {
+                    "reference": "Patient/124169301"
+                },
+                "encounter": {
+                    "reference": "Encounter/pedido"
+                },
+                "authoredOn": "2019-03-05",
+                "requester": {
+                    "reference": "Practitioner/208216960",
+                    "display": "Dr. X"
+                },
+                "performer": [{
+                    "reference": "CareTeam/example"
+                }],
+                "locationCode": [{
+                    "text": "Unidade para cirurgia - Bloco"
+                }],
+                "occurrenceDateTime": "2013-05-08T09:33:27+07:00",
+                "bodySite": [{
+                        "coding": [{
+                            "code": "49521004",
+                            "display": "Região Anatómica"
+                        }],
+                        "text": "Região Anatómica"
+                    },
+                    {
+                        "coding": [{
+                            "code": "lateralidade",
+                            "display": "esquerdo"
+                        }],
+                        "text": "XYZ"
+                    }
+                ],
+                "note": [{
+                    "text": "Historial Clinico"
+                }],
+                "patientInstruction": "patientInstructions",
+                "insurance": [{
+                    "reference": "coverage/example"
+                }],
+                "supportingInfo": [{
+                        "reference": "Observation/5678123"
+                    },
+                    {
+                        "reference": "Observation/4567892"
+                    },
+                    {
+                        "reference": "Condition/p1"
+                    },
+                    {
+                        "reference": "Condition/infeciosidade"
+                    },
+                    {
+                        "reference": "Observation/body-weight"
+                    },
+                    {
+                        "reference": "Obsvervation/body-height"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "http://teste.pt/CareTeam/example",
+            "resource": {
+                "resourceType": "CareTeam",
+                "id": "example",
+                "contained": [{
+                    "resourceType": "Practitioner",
+                    "id": "208216960",
+                    "name": [{
+                        "family": "Anestesista",
+                        "given": [
+                            "Sr(a)"
+                        ]
+                    }]
+                }],
+                "identifier": [{
+                    "value": "12345"
+                }],
+                "status": "active",
+                "category": [{
+                    "coding": [{
+                        "system": "http://loinc.org",
+                        "code": "LA27976-2",
+                        "display": "Equipa de cirurgia"
+                    }]
+                }],
+                "name": "Equipa de Cirurgia doente X",
+                "subject": {
+                    "reference": "Patient/124169301",
+                    "display": "Paciente exemplo"
+                },
+                "participant": [{
+                        "role": [{
+                            "text": "CirurgiãoPrincipal"
+                        }],
+                        "member": {
+                            "reference": "Practitioner/208216960",
+                            "display": "DR dos testes"
+                        }
+                    }, {
+                        "role": [{
+                            "text": "Elementos da Equipa Cirúrgica - 1º Ajudante"
+                        }],
+                        "member": {
+                            "reference": "Practioner/example3",
+                            "display": "Sr teste"
+                        }
+                    }, {
+                        "role": [{
+                            "text": "Elementos da Equipa Cirúrgica - 2º Ajudante"
+                        }],
+                        "member": {
+                            "reference": "Practitioner/208216960",
+                            "display": "Sr teste"
+                        }
+                    },
+                    {
+                        "role": [{
+                            "text": "Elementos da Equipa Cirúrgica - Anestesista"
+                        }],
+                        "member": {
+                            "reference": "#208216960",
+                            "display": "Dorothy Dietition"
+                        },
+                        "onBehalfOf": {
+                            "reference": "Organization/HTESTE"
+                        },
+                        "period": {
+                            "end": "2019-12-12"
+                        }
+                    },
+                    {
+                        "role": [{
+                            "text": "Elementos da Equipa Cirúrgica - Instrumentista"
+                        }],
+                        "member": {
+                            "reference": "Practitioner/208216960",
+                            "display": "Sr teste"
+                        }
+                    }, {
+                        "role": [{
+                            "text": "Elementos da Equipa Cirúrgica - Outros"
+                        }],
+                        "member": {
+                            "reference": "Practitioner/208216960",
+                            "display": "Sr teste"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "http://teste.pt/Condition/diagnosticoPrincipal",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "diagnosticoPrincipal",
+                "clinicalStatus": {
+                    "coding": [{
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                        "code": "active"
+                    }]
+                },
+                "verificationStatus": {
+                    "coding": [{
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                        "code": "confirmed"
+                    }]
+                },
+                "code": {
+                    "coding": [{
+                        "system": "http://snomed.info/sct",
+                        "code": "39065001",
+                        "display": "Burn of ear"
+                    }],
+                    "text": "Burnt Ear"
+                },
+                "bodySite": [{
+                        "coding": [{
+                            "system": "http://teste.pt/",
+                            "code": "D.H4",
+                            "display": "Localização da doença"
+                        }],
+                        "text": "Local"
+                    },
+                    {
+                        "coding": [{
+                            "system": "http://teste.pt/",
+                            "code": "D.C4",
+                            "display": "Diagnóstico Principal - Lateralidade"
+                        }],
+                        "text": "esquerdo"
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/124169301"
+                },
+                "onsetDateTime": "2018-05-24",
+                "evidence": [{
+                    "code": [{
+                        "coding": [{
+                            "code": "Trauma"
+                        }],
+                        "text": "Trauma com origem num acidente? Sim - Qual?"
+
+                    }]
+                }, {
+                    "code": [{
+                        "coding": [{
+                            "code": "Etiologia"
+                        }],
+                        "text": "Etilogia/Etiopatogenia"
+
+                    }]
+                }],
+                "note": [{
+                    "text": "Informação adicional"
+                }]
+            }
+        },
+        {
+            "fullUrl": "http://teste.pt/Condition/p1",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "p1",
+                "clinicalStatus": {
+                    "coding": [{
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                        "code": "active"
+                    }]
+                },
+                "verificationStatus": {
+                    "coding": [{
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                        "code": "confirmed"
+                    }]
+                },
+                "code": {
+                    "coding": [{
+                        "code": "‎77386006",
+                        "display": "pregancy"
+                    }],
+                    "text": "pregnancy"
+                },
+                "subject": {
+                    "reference": "Patient/124169301",
+                    "display": "Paciente exemplo"
+                },
+                "onsetDateTime": "2012-05-24",
+                "note": [{
+                    "text": "notas"
+                }]
+            }
+        },
+        {
+            "fullUrl": "http://teste.pt/Condition/infeciosidade",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "infeciosidade",
+                "clinicalStatus": {
+                    "coding": [{
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                        "code": "active"
+                    }]
+                },
+                "verificationStatus": {
+                    "coding": [{
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                        "code": "differential"
+                    }]
+                },
+                "code": {
+                    "coding": [{
+                        "system": "http://snomed.info/sct",
+                        "code": "87628006",
+                        "display": "Bacterial infectious disease"
+                    }],
+                    "text": "INFECIOSIDADE X e Y"
+                },
+                "subject": {
+                    "reference": "Patient/124169301",
+                    "display": "Paciente exemplo"
+                },
+                "recordedDate": "2013-04-04"
+            }
+        },
+        {
+            "fullUrl": "http://teste.pt/Consent/x",
+            "resource": {
+                "resourceType": "Consent",
+                "id": "x",
+                "status": "active",
+                "scope": {
+                    "coding": [{
+                        "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+                        "code": "treatment"
+                    }]
+                },
+                "category": [{
+                    "coding": [{
+                        "system": "http://loinc.org",
+                        "code": "59284-0"
+                    }]
+                }],
+                "policyRule": {
+                    "coding": [{
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                        "code": "OPTIN"
+                    }]
+                },
+                "patient": {
+                    "reference": "Patient/124169301"
+                },
+                "dateTime": "2016-05-11"
+            }
+        },
+        {
+            "fullUrl": "http://teste.pt/Coverage/x",
+            "resource": {
+                "resourceType": "Coverage",
+                "id": "x",
+                "identifier": [{
+                    "value": "EFR_X"
+                }],
+                "status": "active",
+                "beneficiary": {
+                    "reference": "Patient/124169301"
+                },
+                "subscriberId": "NUMERO_EFR",
+                "period": {
+                    "end": "2020-03-17"
+                },
+                "payor": [{
+                    "identifier": {
+                        "system": "http://ehic.com/insurer",
+                        "value": "123456789"
+                    }
+                }]
+            }
+        }, {
+            "fullUrl": "http://teste.pt/Encounter/pedido",
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "pedido",
+                "identifier": [{
+                    "use": "temp",
+                    "value": "Encounter_Roel_20130128"
+                }],
+                "status": "finished",
+                "class": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                    "code": "IMP",
+                    "display": "Inpatient"
+                },
+                "type": [{
+                    "coding": [{
+                        "system": "http://snomed.info/sct",
+                        "code": "367336001",
+                        "display": "Chemotherapy"
+                    }]
+                }],
+                "subject": {
+                    "reference": "Patient/124169301",
+                    "display": "Paciente exemplo"
+                },
+                "participant": [{
+                    "individual": {
+                        "reference": "Practitioner/208216960"
+                    }
+                }],
+                "reasonCode": [{
+                    "text": "The patient is treated for a tumor."
+                }],
+                "diagnosis": [{
+                        "condition": {
+                            "reference": "condition/diagnosticoSecundario"
+                        },
+                        "rank": 2
+                    },
+                    {
+                        "condition": {
+                            "reference": "condition/diagnosticoPrincipal"
+                        },
+                        "rank": 1
+                    }
+                ],
+                "location": [{
+                    "location": {
+                        "identifier": {
+                            "value": "INP"
+                        },
+                        "display": "Gabinete X e Y"
+                    },
+                    "period": {
+                        "start": "2019-01-17T16:00:00+10:00"
+                    }
+                }]
+            }
+        },
+        {
+            "fullUrl": "http://teste.pt/Encounter/cirurgia",
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "cirurgia",
+                "identifier": [{
+                    "use": "temp",
+                    "value": "Encounter_Roel_20130128"
+                }],
+                "status": "planned",
+                "class": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                    "code": "IMP",
+                    "display": "Inpatient"
+                },
+                "type": [{
+                    "coding": [{
+                        "system": "http://snomed.info/sct",
+                        "code": "367336001",
+                        "display": "Chemotherapy"
+                    }]
+                }],
+                "subject": {
+                    "reference": "Patient/124169301",
+                    "display": "Paciente exemplo"
+                },
+                "basedOn": [{
+                    "reference": "ServiceRequest/1234567"
+                }],
+                "period": {
+                    "start": "2019-01-17T16:00:00+10:00",
+                    "end": "2019-01-17T16:30:00+10:00"
+                },
+                "reasonCode": [{
+                    "text": "The patient is treated for a tumor."
+                }],
+                "location": [{
+                        "location": {
+                            "identifier": {
+                                "value": "INP"
+                            },
+                            "display": "Gabinete X e Y"
+                        },
+                        "status": "planned",
+                        "period": {
+                            "start": "2019-01-17T16:00:00+10:00",
+                            "end": "2019-01-17T16:30:00+10:00"
+                        }
+                    },
+                    {
+                        "location": {
+                            "identifier": {
+                                "value": "ICU"
+                            },
+                            "display": "Unidade Cuidados Intensivos"
+                        },
+                        "status": "planned",
+                        "period": {
+                            "start": "2019-01-17T16:00:00+10:00",
+                            "end": "2019-01-17T16:30:00+10:00"
+                        }
+                    }
+                ]
+            }
+
+        },
+        {
+            "fullUrl": "http://teste.pt/Observation/4567892",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "4567892",
+                "status": "final",
+                "code": {
+                    "coding": [{
+                            "system": "http://loinc.org",
+                            "code": "29463-7",
+                            "display": "Body Weight"
+                        },
+                        {
+                            "system": "http://loinc.org",
+                            "code": "3141-9",
+                            "display": "Body weight Measured"
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "27113001",
+                            "display": "Body weight"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/124169301"
+                },
+                "valueQuantity": {
+                    "value": 75,
+                    "unit": "Kg"
+                }
+            }
+
+        }, {
+            "fullUrl": "http://teste.pt/Observation/body-height",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "body-height",
+                "status": "final",
+                "code": {
+                    "coding": [{
+                        "system": "http://loinc.org",
+                        "code": "8302-2",
+                        "display": "Body height"
+                    }],
+                    "text": "Body height"
+                },
+                "subject": {
+                    "reference": "Patient/124169301"
+                },
+                "valueQuantity": {
+                    "value": 170,
+                    "unit": "cm"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://teste.pt/Observation/5678123",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "5678123",
+                "status": "final",
+                "code": {
+                    "coding": [{
+                        "system": "http://teste.pt/stuff/x",
+                        "code": "XXXX",
+                        "display": "diopters"
+                    }],
+                    "text": "Dioptrias D/E C. Refrativa"
+                },
+                "subject": {
+                    "reference": "Patient/124169301"
+                },
+                "valueQuantity": {
+                    "value": 0.3,
+                    "unit": "diopters"
+                },
+                "note": [{
+                    "text": "texto livre para descrição dioptrias"
+                }]
+            }
+        },
+        {
+            "fullUrl": "http://teste.pt/Observation/x5",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "x5",
+                "status": "final",
+                "code": {
+                    "coding": [{
+                        "system": "http://teste.pt/stuff/x",
+                        "code": "XXXX",
+                        "display": "AVOD"
+                    }],
+                    "text": "AVOD/E Com/Sem Correção"
+                },
+                "subject": {
+                    "reference": "Patient/124169301"
+                },
+                "valueQuantity": {
+                    "value": 0.3,
+                    "unit": "sdasd"
+                }
+            }
+        }, {
+            "fullUrl": "http://teste.pt/Observation/987654321",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "987654321",
+                "status": "final",
+                "code": {
+                    "coding": [{
+                        "system": "http://teste.pt/stuff/x",
+                        "code": "XXXX",
+                        "display": "Descrição tratamento radioterapia"
+                    }],
+                    "text": "Descrição tratamento radioterapias"
+                },
+                "subject": {
+                    "reference": "Patient/124169301"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://teste.pt/Observation/1234456789",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "1234456789",
+                "status": "final",
+                "code": {
+                    "coding": [{
+                        "system": "http://teste.pt/stuff/x",
+                        "code": "XXXX",
+                        "display": "Descrição tratamento quimioterapia"
+                    }],
+                    "text": "Descrição tratamento quimioterapias"
+                },
+                "subject": {
+                    "reference": "Patient/124169301"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://teste.pt/Practitioner/208216960",
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "208216960",
+                "identifier": [{
+                        "use": "official",
+                        "type": {
+                            "coding": [{
+                                "code": "CP",
+                                "display": "Cédula Profissional"
+                            }]
+                        },
+                        "value": "45667677676"
+                    },
+                    {
+                        "use": "usual",
+                        "type": {
+                            "coding": [{
+                                "code": "TESTE",
+                                "display": "TESTE"
+                            }]
+                        },
+                        "value": "174BIP3JH438"
+                    },
+                    {
+                        "use": "usual",
+                        "type": {
+                            "coding": [{
+                                "code": "HTESTE",
+                                "display": "Hospital TESTE"
+                            }]
+                        },
+                        "value": "1232343535"
+                    }
+                ],
+                "name": [{
+                    "use": "official",
+                    "text": "João Silva"
+                }],
+                "telecom": [{
+                    "system": "email",
+                    "value": "joao.silva@teste.pt",
+                    "use": "work"
+                }],
+                "qualification": [{
+                    "code": {
+                        "coding": [{
+                            "system": "http://snomed.info/sct",
+                            "code": "41672002",
+                            "display": "Pulmonologist"
+                        }]
+                    }
+                }]
+            }
+        },
+        {
+            "fullUrl": "http://teste.pt/Patient/124169301",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "124169301",
+                "identifier": [{
+                        "use": "usual",
+                        "type": {
+                            "coding": [{
+                                "code": "TESTE",
+                                "display": "TESTE"
+                            }]
+                        },
+                        "value": "124169301"
+                    },
+                    {
+                        "use": "usual",
+                        "type": {
+                            "coding": [{
+                                "code": "CC",
+                                "display": "Cartão de Cidadão"
+
+                            }]
+                        },
+                        "value": "24824947"
+                    },
+                    {
+                        "use": "usual",
+                        "type": {
+                            "coding": [{
+                                "code": "HCP",
+                                "display": "Hospital xxx Porto"
+                            }]
+                        },
+                        "value": "24824947"
+                    }
+                ],
+                "active": true,
+                "name": [{
+                    "use": "official",
+                    "text": "Paciente exemplo"
+                }],
+                "telecom": [{
+                        "system": "phone",
+                        "value": "968888888",
+                        "use": "mobile"
+                    },
+                    {
+                        "system": "email",
+                        "value": "example@mail.com"
+                    }
+                ],
+                "gender": "male",
+                "birthDate": "1974-12-25"
+            }
+        }, {
+            "fullUrl": "http://teste.pt/SupplyRequest/equipamento",
+            "resource": {
+                "resourceType": "SupplyRequest",
+                "id": "equipamento",
+                "identifier": [{
+                    "value": "Order10284"
+                }],
+                "status": "active",
+                "category": {
+                    "coding": [{
+                        "code": "central",
+                        "display": "Central Stock Resupply"
+                    }]
+                },
+                "itemCodeableConcept": {
+                    "coding": [{
+                        "code": "REFERENCIA",
+                        "display": "material X"
+                    }],
+                    "text": "extra"
+                },
+                "quantity": {
+                    "value": 1,
+                    "unit": "unidades"
+                },
+                "occurrenceDateTime": "2016-12-31",
+                "requester": {
+                    "reference": "Practitioner/208216960"
+                },
+                "deliverTo": {
+                    "display": "Local X"
+                }
+            }
+        }
+    ]
+}
